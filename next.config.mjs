@@ -1,4 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import nextMDX from '@next/mdx';
+import rehypeHighlight from 'rehype-highlight';
 
-export default nextConfig;
+const withMDX = nextMDX({
+  options: {
+    rehypePlugins: [rehypeHighlight],
+  },
+});
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure `pageExtensions` to include MDX files
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+};
+
+export default withMDX(nextConfig)

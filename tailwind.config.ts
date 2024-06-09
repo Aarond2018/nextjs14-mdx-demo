@@ -14,7 +14,18 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    hljs: {
+      theme: "atom-one-dark",
+    },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwind-highlightjs"),
+  ],
+  safelist: [
+    {
+      pattern: /hljs+/,
+    },
+  ],
 };
 export default config;
